@@ -11,9 +11,9 @@
 			zoo.push(ace);
 		});
 		if (zoo.length != null) {
-			return '0';
-		} else {
 			return zoo.length;
+		} else {
+			return '0';
 		}
 	}
 	let deletedcount = getDeletedReviews();

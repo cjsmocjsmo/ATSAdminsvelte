@@ -1,4 +1,7 @@
 <script>
+	import { db } from '$lib/firebase';
+	import { setDoc, doc } from 'firebase/firestore';
+
 	export let Count;
 	export let UUID;
 	export let Date;
@@ -9,17 +12,19 @@
 	export let Quarintine;
 	export let Delete;
 
-	import { db } from '$lib/firebase';
-	import { setDoc, doc } from 'firebase/firestore';
+	console.log(Count)
 
 	let inActive = false;
 
-	let currentDate = new Date();
-	let time = currentDate.getHours() + currentDate.getMinutes() + currentDate.getSeconds();
-	let title = 'review' + time;
+	// let currentDate2 = new window.Date();
+	// let time = currentDate2.getHours() + currentDate2.getMinutes() + currentDate2.getSeconds();
+	// let title = 'review' + time;
 
 	async function setApproved() {
+		let title = "review" + Count;
 		await setDoc(doc(db, 'reviews', title), {
+			Count: Count,
+			UUID: UUID,
 			Date: Date,
 			Name: Name,
 			Email: Email,
@@ -37,7 +42,10 @@
 	}
 
 	async function setDeleted() {
-		await setDoc(doc(db, 'reviews', title), {
+		let title2 = "review" + Count;
+		await setDoc(doc(db, 'reviews', title2), {
+			Count: Count,
+			UUID: UUID,
 			Date: Date,
 			Name: Name,
 			Email: Email,
@@ -75,6 +83,6 @@
 
 <style>
 	button {
-		font-size: 2em;
+		font-size: 1.5em;
 	}
 </style>
