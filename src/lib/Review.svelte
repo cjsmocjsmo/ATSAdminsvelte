@@ -7,28 +7,23 @@
 	export let Date;
 	export let Name;
 	export let Email;
+	export let Sig;
 	export let Message;
 	export let Approved;
 	export let Quarintine;
 	export let Delete;
 
-	// console.log(Count)
-
 	let inActive = false;
 
-	// let currentDate2 = new window.Date();
-	// let time = currentDate2.getHours() + currentDate2.getMinutes() + currentDate2.getSeconds();
-	// let title = 'review' + time;
-
 	async function setApproved() {
-		let title = "review" + UUID;
+		let title = 'review' + UUID;
+		console.log(title);
 		await setDoc(doc(db, 'reviews', title), {
-			// Count: Count,
 			UUID: UUID,
 			Date: Date,
 			Name: Name,
 			Email: Email,
-			Sig: Email,
+			Sig: Sig,
 			Message: Message,
 			Approved: 'yes',
 			Quarintine: 'no',
@@ -42,14 +37,14 @@
 	}
 
 	async function setDeleted() {
-		let title2 = "review" + UUID;
+		let title2 = 'review' + UUID;
+		console.log(title2);
 		await setDoc(doc(db, 'reviews', title2), {
-			// Count: Count,
 			UUID: UUID,
 			Date: Date,
 			Name: Name,
 			Email: Email,
-			Sig: Email,
+			Sig: Sig,
 			Message: Message,
 			Approved: 'no',
 			Quarintine: 'no',
@@ -72,6 +67,7 @@
 		<p>Date: {Date}</p>
 		<p>Name: {Name}</p>
 		<p>Email: {Email}</p>
+		<p>Sig: {Sig}</p>
 		<p>Message: {Message}</p>
 		<p>Approved: {Approved}</p>
 		<p>Quarintine: {Quarintine}</p>
