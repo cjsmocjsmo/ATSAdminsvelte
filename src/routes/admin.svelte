@@ -16,6 +16,7 @@
 			zoo.push(ace);
 		});
 		if (zoo.length !== null) {
+			quarActive = true;
 			return zoo;
 		} else {
 			quarActive = false;
