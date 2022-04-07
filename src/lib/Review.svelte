@@ -2,7 +2,7 @@
 	import { db } from '$lib/firebase';
 	import { setDoc, doc } from 'firebase/firestore';
 
-	export let Count;
+	// export let Count;
 	export let UUID;
 	export let Date;
 	export let Name;
@@ -12,7 +12,7 @@
 	export let Quarintine;
 	export let Delete;
 
-	console.log(Count)
+	// console.log(Count)
 
 	let inActive = false;
 
@@ -21,9 +21,9 @@
 	// let title = 'review' + time;
 
 	async function setApproved() {
-		let title = "review" + Count;
+		let title = "review" + UUID;
 		await setDoc(doc(db, 'reviews', title), {
-			Count: Count,
+			// Count: Count,
 			UUID: UUID,
 			Date: Date,
 			Name: Name,
@@ -42,9 +42,9 @@
 	}
 
 	async function setDeleted() {
-		let title2 = "review" + Count;
+		let title2 = "review" + UUID;
 		await setDoc(doc(db, 'reviews', title2), {
-			Count: Count,
+			// Count: Count,
 			UUID: UUID,
 			Date: Date,
 			Name: Name,
@@ -67,7 +67,7 @@
 	<p />
 {:else}
 	<div class="rev1">
-		<h2>Review{Count}</h2>
+		<h2>Review{UUID}</h2>
 		<p>UUID: {UUID}</p>
 		<p>Date: {Date}</p>
 		<p>Name: {Name}</p>

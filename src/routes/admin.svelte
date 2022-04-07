@@ -1,5 +1,4 @@
 <script>
-	import HourGlass from '$lib/Hourglass.gif';
 	import Counters from '$lib/Counters.svelte';
 	import Review from '$lib/Review.svelte';
 	import { db } from '$lib/firebase';
