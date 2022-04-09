@@ -11,15 +11,16 @@
 		const q = query(collection(db, 'reviews'), where('Quarintine', '==', 'yes'));
 		const querySnapshot = await getDocs(q);
 		let qhs = querySnapshot.forEach((rev) => {
-			console.log(rev);
 			let ace = rev.data();
 			zoo.push(ace);
 		});
-		if (zoo.length !== null) {
-			quarActive = true;
+		if (zoo.length == null || zoo.length == 0) {
+			quarActive = false;
 			return zoo;
 		} else {
-			quarActive = false;
+			quarActive = true;
+			console.log(zoo.length)
+			return zoo;
 		}
 	}
 	let quarintine = getQuarintineReviews();
@@ -30,17 +31,17 @@
 	<Counters />
 	<div>
 		<h1>AllQuarintined Reviews</h1>
-		{#if quarActive}
-			{#await quarintine}
-				<p>waiting...</p>
-			{:then message}
+		{#await quarintine}
+			<p>waiting...</p>
+		{:then message}
+			{#if quarActive}
 				{#each message as M}
 					<Review {...M} />
 				{/each}
-			{/await}
-		{:else}
-			<p>No Quarintined reviews found</p>
-		{/if}
+			{:else}
+				<p>No Quarintined reviews found</p>
+			{/if}
+		{/await}
 	</div>
 </body>
 

@@ -6,46 +6,32 @@
 	let password = '';
 	let warningInActive = true;
 
-
 	async function getCreds() {
 		let creds = [];
 		const q = query(collection(db, 'creds'));
 		const querySnapshot = await getDocs(q);
 		let qhs = querySnapshot.forEach((rev) => {
 			let acred = rev.data();
-			
 			creds.push(acred);
 		});
-		if (creds[0].password === password && creds[0].user === name){
-			console.log(creds)
-			window.location.replace("/admin")
-			warningInActive = true
+		if (creds[0].password === password && creds[0].user === name) {
+			window.location.replace('/admin');
+			warningInActive = true;
 		} else {
-			warningInActive = false
+			warningInActive = false;
 			return 'Please setup creds db';
 		}
 	}
-	// let allcreds = getCreds();
 
-	
 	function handleClick() {
 		let allcreds = getCreds();
-		console.log(name)
 	}
-	
 </script>
 
 <body>
 	<div class="login">
-		<h1>LogIn</h1>
-		<input 
-			bind:value={name} 
-			placeholder="UserName" 
-			id="name" 
-			class="foo" 
-			type="text" 
-			name="name" 
-		/>
+		<h1>AlphaTree Service Admin</h1>
+		<input bind:value={name} placeholder="UserName" id="name" class="foo" type="text" name="name" />
 		<input
 			bind:value={password}
 			placeholder="Password"
@@ -56,14 +42,12 @@
 		/>
 		<button on:click={handleClick}>Login</button>
 		{#if warningInActive}
-			<p></p>
+			<p />
 		{:else}
 			<p>Password or Username is incorrect!</p>
 		{/if}
-		
 
 		<!-- <a href="/admin"><button>Login With Google</button></a> -->
-		
 	</div>
 </body>
 
