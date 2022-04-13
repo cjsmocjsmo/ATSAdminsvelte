@@ -1,8 +1,10 @@
 <script>
 	import Counters from '$lib/Counters.svelte';
 	import Review from '$lib/Review.svelte';
+	import BackupDB from '$lib/BackupDB.svelte'
 	import { db } from '$lib/firebase';
 	import { collection, query, where, getDocs, waitForPendingWrites } from 'firebase/firestore';
+import BackupDb from '$lib/BackupDB.svelte';
 
 	let quarActive = false;
 
@@ -19,7 +21,6 @@
 			return zoo;
 		} else {
 			quarActive = true;
-			console.log(zoo.length)
 			return zoo;
 		}
 	}
@@ -27,10 +28,16 @@
 </script>
 
 <body>
-	<h1>Admin Page</h1>
+	<h1 class="AP">Admin Page</h1>
+	
 	<Counters />
+	
 	<div>
-		<h1>AllQuarintined Reviews</h1>
+		<div class="head">
+			<h1>AllQuarintined Reviews</h1>
+			<BackupDb />
+		</div>
+		
 		{#await quarintine}
 			<p>waiting...</p>
 		{:then message}
@@ -49,5 +56,16 @@
 	body {
 		background-color: darkgray;
 		height: 100vh;
+	}
+
+	.AP {
+		text-align: center;
+	}
+
+	.head {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 </style>
