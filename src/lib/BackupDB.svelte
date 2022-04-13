@@ -16,7 +16,7 @@
 
 
 		async function createZipFile() {
-			const ress = await fetch(`http://atsio.xyz/Backup?reviewslist=${boo}`)
+			const ress = await fetch(`https://atsio.xyz/Backup?reviewslist=${boo}`)
 			let resp = await ress.json();
 			console.log("this is server resp")
 			console.log(resp)
@@ -40,7 +40,7 @@
     <img src={Hourglass} alt="fuckti" />
 {:then rev }
     <button class="backupdb-btn" on:click={getAllReviews}>Backup Db</button>
-	<a href="http://atsio.xyz/assets/backup.gz" download>
+	<a href="https://atsio.xyz/assets/backup.gz" download>
 		<button class="dload-btn">Download Zip File</button>
 	</a>
 {/await}
