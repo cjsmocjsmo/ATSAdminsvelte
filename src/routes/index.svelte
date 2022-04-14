@@ -77,4 +77,14 @@
 		padding: 5px;
 		background-color: darkseagreen;
 	}
+
+	@media (max-width: 375px) {
+		h1 {
+			font-size: 1.75em;
+		}
+		
+		input {
+			font-size: 1.5em;
+		}
+	}
 </style>
