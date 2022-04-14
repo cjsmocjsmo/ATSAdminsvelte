@@ -46,8 +46,6 @@
 		{:else}
 			<p>Password or Username is incorrect!</p>
 		{/if}
-
-		<!-- <a href="/admin"><button>Login With Google</button></a> -->
 	</div>
 </body>
 

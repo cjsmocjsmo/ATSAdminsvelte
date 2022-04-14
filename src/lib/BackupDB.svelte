@@ -14,9 +14,9 @@
         console.log(zoo)
 		let boo = JSON.stringify(zoo)
 
-
 		async function createZipFile() {
 			const ress = await fetch(`http://atsio.xyz/Backup?reviewslist=${boo}`)
+			// const ress = await fetch(`http://localhost/Backup?reviewslist=${boo}`)
 			let resp = await ress.json();
 			console.log("this is server resp")
 			console.log(resp)
@@ -26,12 +26,6 @@
 		}
 
 		let newZipFile = createZipFile();
-
-		// if (zoo.length != null) {
-		// 	return zoo.length;
-		// } else {
-		// 	return '0';
-		// }
 	}
 	let revcount = getAllReviews();
 </script>

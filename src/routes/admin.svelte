@@ -1,7 +1,6 @@
 <script>
 	import Counters from '$lib/Counters.svelte';
 	import Review from '$lib/Review.svelte';
-	// import BackupDB from '$lib/BackupDB.svelte'
 	import { db } from '$lib/firebase';
 	import { collection, query, where, getDocs, waitForPendingWrites } from 'firebase/firestore';
 	import BackupDb from '$lib/BackupDB.svelte';
